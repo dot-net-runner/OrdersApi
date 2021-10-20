@@ -1,10 +1,7 @@
 ﻿using OrdersApi.Domain.Entities.Common;
+using OrdersApi.Domain.Entities.Orders.Validators;
 using OrdersApi.Domain.Entities.ParcelAutomats;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrdersApi.Domain.Entities.Orders
 {
@@ -31,25 +28,34 @@ namespace OrdersApi.Domain.Entities.Orders
         {
         }
 
-        public Order(ICreateOrderForm form)
+        public Order(ICreateOrderForm form, IOrderValidator orderValidator)
         {
             Status = OrderStatus.Registered;
             ParcelAutomatId = form.ParcelAutomatId;
 
             this.Update(form);
-        }
 
-        public void Update(IOrderUpdateForm form)
-        {
-            Products = form.Products.ToArray();
-            Price = form.Price;
-            RecipientPhoneNumber = form.RecipientPhoneNumber;
-            RecipientFullName = form.RecipientFullName;
+            orderValidator.Validate(this);
         }
 
         public void Cancel()
         {
             Status = OrderStatus.Сanceled;
         }
-    } 
+
+        public void Update(IOrderUpdateForm form, IOrderValidator orderValidator)
+        {
+            this.Update(form);
+
+            orderValidator.Validate(this);
+        }
+
+        private void Update(IOrderUpdateForm form)
+        {
+            Products = form.Products.ToArray();
+            Price = form.Price;
+            RecipientPhoneNumber = form.RecipientPhoneNumber;
+            RecipientFullName = form.RecipientFullName;
+        }
+    }
 }

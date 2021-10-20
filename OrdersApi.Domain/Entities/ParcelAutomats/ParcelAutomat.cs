@@ -1,10 +1,7 @@
 ﻿using OrdersApi.Domain.Entities.Common;
 using OrdersApi.Domain.Entities.Orders;
-using System;
+using OrdersApi.Domain.Entities.ParcelAutomats.Validators;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrdersApi.Domain.Entities.ParcelAutomats
 {
@@ -22,11 +19,13 @@ namespace OrdersApi.Domain.Entities.ParcelAutomats
         {
         }
 
-        public ParcelAutomat(IParcelAutomatCreateForm form)
+        public ParcelAutomat(IParcelAutomatCreateForm form, IParcelAutomatValidator parcelAutomatValidator)
         {
             Id = form.Id;
             Address = form.Address;
             IsActive = form.IsActive;
+
+            parcelAutomatValidator.Validate(this);
         }
     }
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace OrdersApi.Web.Models.Common
 {
-    public class ApiResponse<T> 
+    public class ApiResponse<T>
     {
         public int Code { get; private set; }
 
@@ -21,6 +18,16 @@ namespace OrdersApi.Web.Models.Common
             Data = data;
         }
 
+        public ApiResponse(int code, string error, string message)
+            : this(code, new Dictionary<string, string> { { error, message } })
+        {
+        }
+
+        public ApiResponse(int code, IReadOnlyDictionary<string, string> errors)
+        {
+            Code = code;
+            Errors = errors;
+        }
 
         public static ApiResponse<T> Success(T data)
         {

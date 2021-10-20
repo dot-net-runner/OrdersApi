@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OrdersApi.Application;
 using OrdersApi.Application.Common;
+using OrdersApi.Domain;
 using OrdersApi.Web.Adapters;
 
 namespace OrdersApi.Web.Services
@@ -13,6 +14,7 @@ namespace OrdersApi.Web.Services
 
             ApplicationServiceConfiguration.AddApplicationServices(serviceConfiguratorAdapter);
             DataServiceConfiguration.AddDataServices(serviceConfiguratorAdapter);
+            DomainServiceConfiguration.AddDomainServices(serviceConfiguratorAdapter);
         }
     }
 }

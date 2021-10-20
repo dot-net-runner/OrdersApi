@@ -3,7 +3,6 @@ using OrdersApi.Data.Common;
 using OrdersApi.Data.DataBase;
 using OrdersApi.Domain.Entities.Common;
 using OrdersApi.Domain.Repositories;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,7 +26,7 @@ namespace OrdersApi.Data.Repositories
 
         public async Task<TEntity> GetItem(TId id, CancellationToken cancellationToken)
         {
-            return await _entities.FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken) 
+            return await _entities.FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken)
                 ?? throw new EntityNotFoundException($"Не удалось найти сущность c номером {id.ToString()}");
         }
     }

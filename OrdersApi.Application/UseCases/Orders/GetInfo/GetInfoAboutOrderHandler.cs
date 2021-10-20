@@ -1,9 +1,5 @@
 ﻿using OrdersApi.Domain.Repositories;
 using OrdersApi.Domain.Usecases.Handlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,7 +16,7 @@ namespace OrdersApi.Application.UseCases.Orders.GetInfo
 
         public async Task<GetInfoAboutOrderOutputDto> Handle(GetInfoAboutOrderInputDto request, CancellationToken cancellationToken)
         {
-            var order = await _ordersRepository.GetItem(request.Id,cancellationToken).ConfigureAwait(false);
+            var order = await _ordersRepository.GetItem(request.Id, cancellationToken).ConfigureAwait(false);
 
             return new GetInfoAboutOrderOutputDto(order);
         }

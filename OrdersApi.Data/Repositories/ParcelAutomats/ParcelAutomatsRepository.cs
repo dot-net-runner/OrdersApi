@@ -2,10 +2,8 @@
 using OrdersApi.Data.DataBase;
 using OrdersApi.Domain.Entities.ParcelAutomats;
 using OrdersApi.Domain.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

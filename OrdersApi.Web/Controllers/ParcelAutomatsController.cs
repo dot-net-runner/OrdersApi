@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OrdersApi.Application.UseCases.ParcelAutomats;
 using OrdersApi.Application.UseCases.ParcelAutomats.Create;
 using OrdersApi.Application.UseCases.ParcelAutomats.GetInfo.GetActiveParcelAutomats;
@@ -7,9 +6,6 @@ using OrdersApi.Application.UseCases.ParcelAutomats.GetInfo.GetInfoAboutParcelAu
 using OrdersApi.Domain.Dipatchers;
 using OrdersApi.Web.Models.Common;
 using OrdersApi.Web.Models.ParcelAutomats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

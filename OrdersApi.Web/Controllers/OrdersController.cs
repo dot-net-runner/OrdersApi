@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using OrdersApi.Application.UseCases.Orders.Cancel;
 using OrdersApi.Application.UseCases.Orders.Create;
 using OrdersApi.Application.UseCases.Orders.GetInfo;
@@ -7,9 +6,6 @@ using OrdersApi.Application.UseCases.Orders.Update;
 using OrdersApi.Domain.Dipatchers;
 using OrdersApi.Web.Models.Common;
 using OrdersApi.Web.Models.Orders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -1,15 +1,12 @@
 ﻿using OrdersApi.Data.DataBase;
 using OrdersApi.Domain.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace OrdersApi.Data.Repositories
 {
-    class Saver: ISaver
+    class Saver : ISaver
     {
         private readonly Func<CancellationToken, Task> _save;
 
