@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace OrdersApi.Domain.Entities.Validators
 {
-    internal class ProductsValidator : IProductsValidator
+    class ProductsValidator : IProductsValidator
     {
         private const int MAX_PRODUCTS_COUNT = 10;
 

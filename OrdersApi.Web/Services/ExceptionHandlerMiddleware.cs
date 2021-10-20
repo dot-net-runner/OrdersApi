@@ -39,6 +39,12 @@ namespace OrdersApi.Web.Services
 
                 await ExecuteResult(response, context).ConfigureAwait(false);
             }
+            catch (StatusException ex)
+            {
+                var response = new ApiResponse<object>(403, ex.EntityName, ex.Message);
+
+                await ExecuteResult(response, context).ConfigureAwait(false);
+            }
             catch (Exception ex)
             {
                 var response = new ApiResponse<object>(500, "Internal server error", ex.Message);

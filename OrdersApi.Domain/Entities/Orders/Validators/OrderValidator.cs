@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OrdersApi.Domain.Entities.Orders
 {
-    public class OrderValidator : IOrderValidator
+    internal class OrderValidator : IOrderValidator
     {
         private readonly IPhoneNumberValidator _phoneNumberValidator;
         private readonly IAddressValidator _addressValidator;

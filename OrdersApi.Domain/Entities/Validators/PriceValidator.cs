@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrdersApi.Domain.Entities.Validators
 {
-    internal class PriceValidator : IPriceValidator
+    class PriceValidator : IPriceValidator
     {
         public bool Validate(decimal price)
         {
